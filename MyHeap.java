@@ -24,7 +24,10 @@ public class MyHeap {
                     pushDown(data, size, index * 2 + 1);
                 }
             } else if (data[index * 2 + 2] > data[index]) {
-
+                int temp = data[index];
+                data[index] = data[index * 2 + 2];
+                data[index * 2 + 2] = temp;
+                pushDown(data, size, index * 2 + 2);
             }
         }
     }
