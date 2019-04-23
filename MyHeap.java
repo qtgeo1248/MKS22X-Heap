@@ -1,5 +1,5 @@
 public class MyHeap {
-    public static void pushDown(int[] data, int size, int index) {
+    private static void pushDown(int[] data, int size, int index) {
         if (index * 2 + 2 >= size) {
             return; //base case
         } else if (index * 2 + 1 == size - 1) { //case where you have one child
@@ -26,12 +26,16 @@ public class MyHeap {
             }
         }
     }
-    public static void pushUp(int[] data, int index) {
+    private static void pushUp(int[] data, int index) {
         if (data[index] > data[(index - 1) / 2]) { //if you are larger than parent
             int temp = data[index];
             data[index] = data[(index - 1) / 2];
             data[(index - 1) / 2] = temp;
             pushUp(data, (index - 1) / 2);
         }
+    }
+
+    public static void heapify(int[] data) {
+        
     }
 }
