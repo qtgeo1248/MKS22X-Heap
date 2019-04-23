@@ -40,4 +40,11 @@ public class MyHeap {
             pushUp(data, i);
         }
     }
+
+    public static void heapsort(int[] data) {
+        heapify(data);
+        for (int size = data.length; size > 0; size--) {
+            
+        }
+    }
 }
