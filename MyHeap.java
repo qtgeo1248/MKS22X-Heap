@@ -36,6 +36,8 @@ public class MyHeap {
     }
 
     public static void heapify(int[] data) {
-        
+        for (int i = (int)Math.pow(2, ((int)(Math.log(data.size()) / Math.log(2)))) - 2; i >= 0; i--) {
+
+        }
     }
 }
