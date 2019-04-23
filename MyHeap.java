@@ -12,7 +12,12 @@ public class MyHeap {
             }
         } else { //case where you have two children
             if (data[index * 2 + 1] > data[index]) {
-                
+                if (data[index * 2 + 2] > data[index * 2 + 1]) {
+                    int temp = data[index];
+                    data[index] = data[index * 2 + 2];
+                    data[index * 2 + 2] = temp;
+                    pushDown(data, size, index * 2 + 2);
+                }
             } else if (data[index * 2 + 2] > data[index]) {
 
             }
