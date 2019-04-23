@@ -36,8 +36,8 @@ public class MyHeap {
     }
 
     public static void heapify(int[] data) {
-        for (int i = (int)Math.pow(2, (int)(Math.log(data.length) / Math.log(2))) - 2; i >= 0; i--) {
-            pushDown(data, data.length, i);
+        for (int i = 0; i < data.length; i++) {
+            pushUp(data, i);
         }
     }
 }

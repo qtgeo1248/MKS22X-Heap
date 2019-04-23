@@ -9,6 +9,6 @@ public class Driver {
         System.out.println(Arrays.toString(test1));*/
 
         MyHeap.heapify(test1);
-        System.out.println(test1);
+        System.out.println(Arrays.toString(test1));
     }
 }
