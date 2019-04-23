@@ -15,8 +15,12 @@ public class Driver {
         MyHeap.heapsort(test2);
         System.out.println(Arrays.toString(test2));
 
-        int[] test3 = {6, 12, 4, 1, 4, 1, 5};
+        int[] test3 = {6, 12, 4, 1, 4, 5};
         MyHeap.heapsort(test3);
         System.out.println(Arrays.toString(test3));
+
+        int[] test4 = {40, 2, 4, 123, 5, 2, 5, 4, 7, -43, 10};
+        MyHeap.heapsort(test4);
+        System.out.println(Arrays.toString(test4));
     }
 }
