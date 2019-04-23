@@ -10,6 +10,12 @@ public class MyHeap {
                 data[index] = data[index * 2 + 1];
                 data[index * 2 + 1] = temp; //you can do nothing cuz you only have one child
             }
+        } else { //case where you have two children
+            if (data[index * 2 + 1] > data[index]) {
+                
+            } else if (data[index * 2 + 2] > data[index]) {
+
+            }
         }
     }
 }
