@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class MyHeap {
     public static void pushDown(int[] data, int size, int index) {
-        if (index * 2 + 2 >= size) {
+        if (index * 2 + 1 >= size) {
             return; //base case
         } else if (index * 2 + 1 == size - 1) { //case where you have one child
             if (data[index * 2 + 1] > data[index]) { //when child is greater than parent
@@ -46,7 +46,7 @@ public class MyHeap {
     public static void heapsort(int[] data) {
         heapify(data);
         for (int size = data.length; size > 0; size--) {
-            pushDown(data, size - 1, 0);
+            pushDown(data, size, 0);
             int temp = data[0];
             data[0] = data[size - 1];
             data[size - 1] = temp;
