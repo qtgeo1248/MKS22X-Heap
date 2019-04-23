@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class MyHeap {
     private static void pushDown(int[] data, int size, int index) {
         if (index * 2 + 2 >= size) {
@@ -43,8 +45,18 @@ public class MyHeap {
 
     public static void heapsort(int[] data) {
         heapify(data);
+        System.out.println(Arrays.toString(data));
         for (int size = data.length; size > 0; size--) {
-            
+            pushDown(data, size, 0);
+            System.out.println(Arrays.toString(data));
+            int temp = data[0];
+            data[0] = data[size - 1];
+            data[size - 1] = temp;
+            System.out.println(Arrays.toString(data));
+            System.out.println(size);
         }
+        int temp = data[0];
+        data[0] = data[1];
+        data[1] = temp;
     }
 }

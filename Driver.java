@@ -10,5 +10,13 @@ public class Driver {
 
         MyHeap.heapify(test1);
         System.out.println(Arrays.toString(test1));
+
+        int[] test2 = {6, 2, 56, 1, 6, 8, 6, 2, 8, 3435456};
+        MyHeap.heapsort(test2);
+        System.out.println(Arrays.toString(test2));
+
+        int[] test3 = {6, 12, 4, 1, 4, 1, 5};
+        MyHeap.heapsort(test3);
+        System.out.println(Arrays.toString(test3));
     }
 }
