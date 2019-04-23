@@ -1,7 +1,5 @@
-import java.util.Arrays;
-
 public class MyHeap {
-    private static void pushDown(int[] data, int size, int index) {
+    public static void pushDown(int[] data, int size, int index) {
         if (index * 2 + 2 >= size) {
             return; //base case
         } else if (index * 2 + 1 == size - 1) { //case where you have one child
@@ -11,23 +9,20 @@ public class MyHeap {
                 data[index * 2 + 1] = temp; //you can do nothing cuz you only have one child
             }
         } else { //case where you have two children
-            if (data[index * 2 + 1] > data[index]) {
-                if (data[index * 2 + 2] > data[index * 2 + 1]) {
-                    int temp = data[index];
-                    data[index] = data[index * 2 + 2];
-                    data[index * 2 + 2] = temp;
-                    pushDown(data, size, index * 2 + 2);
-                } else {
+            if (data[index * 2 + 1] > data[index * 2 + 2]) {
+                if (data[index * 2 + 1] > data[index]) {
                     int temp = data[index];
                     data[index] = data[index * 2 + 1];
                     data[index * 2 + 1] = temp;
                     pushDown(data, size, index * 2 + 1);
                 }
-            } else if (data[index * 2 + 2] > data[index]) {
-                int temp = data[index];
-                data[index] = data[index * 2 + 2];
-                data[index * 2 + 2] = temp;
-                pushDown(data, size, index * 2 + 2);
+            } else {
+                if (data[index * 2 + 2] > data[index]) {
+                    int temp = data[index];
+                    data[index] = data[index * 2 + 2];
+                    data[index * 2 + 2] = temp;
+                    pushDown(data, size, index * 2 + 2);
+                }
             }
         }
     }
