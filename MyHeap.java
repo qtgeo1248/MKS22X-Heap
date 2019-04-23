@@ -9,15 +9,15 @@ public class MyHeap {
                 data[index * 2 + 1] = temp; //you can do nothing cuz you only have one child
             }
         } else { //case where you have two children
-            if (data[index * 2 + 1] > data[index * 2 + 2]) {
-                if (data[index * 2 + 1] > data[index]) {
+            if (data[index * 2 + 1] > data[index * 2 + 2]) { //if right is less than left
+                if (data[index * 2 + 1] > data[index]) { //and if left is greater than parent
                     int temp = data[index];
                     data[index] = data[index * 2 + 1];
                     data[index * 2 + 1] = temp;
                     pushDown(data, size, index * 2 + 1);
                 }
-            } else {
-                if (data[index * 2 + 2] > data[index]) {
+            } else { //if left is less than right
+                if (data[index * 2 + 2] > data[index]) {  //and if right is greater than parent
                     int temp = data[index];
                     data[index] = data[index * 2 + 2];
                     data[index * 2 + 2] = temp;
@@ -27,6 +27,11 @@ public class MyHeap {
         }
     }
     public static void pushUp(int[] data, int index) {
-        
+        if (data[index] > data[(index - 1) / 2]) { //if you are larger than parent
+            int temp = data[index];
+            data[index] = data[(index - 1) / 2];
+            data[(index - 1) / 2] = temp;
+            pushUp(data, (index - 1) / 2);
+        }
     }
 }
