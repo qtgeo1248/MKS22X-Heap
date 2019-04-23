@@ -26,4 +26,7 @@ public class MyHeap {
             }
         }
     }
+    public static void pushUp(int[] data, int index) {
+        
+    }
 }
