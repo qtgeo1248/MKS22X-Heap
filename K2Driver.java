@@ -8,11 +8,11 @@ public class K2Driver {
 
     private static String name(int i) {
         if (i == INCREASE) {
-            return "Increassing";
+            return "Increasing\t\t";
         } else if (i == DECREASE) {
-            return "Decreasing";
+            return "Decreasing\t\t";
         } else if (i == STANDARD) {
-            return "Normal Random";
+            return "Normal Random\t\t";
         } else if (i == SMALL_RANGE) {
             return "Random with Few Values";
         } else {
@@ -53,23 +53,25 @@ public class K2Driver {
     }
 
     public static void main(String[] args) {
-        //for (int size = 4000000; size < 4000001; size++) {
-        for (int size = 31250; size < 1000001; size *= 2) {
+        int[] sizes = {0, 1, 2, 3, 4, 5, 6, 7, 977, 1953, 3906, 7813, 15625, 31250, 62500, 125000, 250000, 500000, 1000000, 2000000};
+        for (int i = 0; i < sizes.length; i++) {
+            int size = sizes[i];
             for (int type = 0; type <= 3; type++) {
                 int[] start = makeArray(size, type);
                 int[] result = Arrays.copyOf(start, start.length);
 
                 Arrays.sort(result);
                 long startTime = System.currentTimeMillis();
-                Quick.quicksort(start);
+                MyHeap.heapsort(start);
                 long elapsedTime = System.currentTimeMillis() - startTime;
 
                 if (Arrays.equals(start, result)) {
-                    System.out.println("PASS Case " + name(type) + "\t array, size:" + start.length + "\t" + elapsedTime / 1000.0 + "sec ");
+                    System.out.println("PASS Case " + name(type) + "\tsize: " + start.length + "\t" + elapsedTime / 1000.0 + "sec ");
                 } else {
-                    System.out.println("FAIL ! ERROR ! " + name(type) + " array, size:" + size + "  ERROR!");
+                    System.out.println("FAIL ! ERROR ! " + name(type) + "size: " + size + "  ERROR!");
                 }
             }
+            System.out.println();
         }
     }
 }
